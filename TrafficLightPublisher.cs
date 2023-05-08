@@ -18,7 +18,7 @@ namespace AWSIM
     {
 
         /// <summary>
-        /// Topic name in pose msg.
+        /// Topic name of Traffic Light State msg.
         /// </summary>
         public string stateTopic = "/traffic_light_data";
 
