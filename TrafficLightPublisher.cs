@@ -41,11 +41,17 @@ namespace AWSIM
             std_msgs.msg.String msg = new std_msgs.msg.String();
             AWSIM.TrafficLight.BulbData[] bulbDataArray = trafficlight.GetBulbData();
                 
-            msg.Data = trafficlight.UniqueId.ToString() + " ";
+            msg.Data = trafficlight.UniqueId.ToString() + " "; 
+        
+            //add the global coordinates
+            Vector3 globalPosition = trafficlight.transform.position + Environment.Instance.MgrsOffsetPosition;
+        
+            msg.Data += globalPosition.ToString() + " ";
 
             for (int i = 0; i < bulbDataArray.Length; i++)
             {
-                msg.Data += bulbDataArray[i].Color.ToString() + " ";
+                msg.Data += bulbDataArray[i].Type.ToString() + " ";
+                msg.Data += bulbDataArray[i].Status.ToString() + " ";
             }
 
             trafficLightPublisher.Publish(msg);
