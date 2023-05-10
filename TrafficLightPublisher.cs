@@ -53,7 +53,7 @@ namespace AWSIM
             msg.Data = trafficlight.UniqueId.ToString() + " "; 
         
             //add the global coordinates
-            //Since the local referential is rotated 90 degrees, we need to swap the x and z coordinates
+            //Since the local referential is rotated 90 degrees, we need to turn it
 
             Vector3 globalPosition = trafficlight.transform.position;
             globalPosition.z = Environment.Instance.MgrsOffsetPosition.z + globalPosition.y;
